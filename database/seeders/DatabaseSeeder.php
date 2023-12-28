@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@filamentphp.com',
-        ]);
+        \App\Models\User::factory()
+            ->has(\App\Models\Address::factory())
+                ->create([
+                'name' => 'Test User',
+                'email' => 'test@filamentphp.com',
+            ]);
     }
 }
