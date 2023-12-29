@@ -29,22 +29,22 @@ class UserResource extends Resource
                     ->email()
                     ->required(),
 
-                // Does not show the date at all, but saves it 2 hours behind
+                // Does not show the date at all [not fixed], but saves it 2 hours behind [not fixed]
                 Forms\Components\Group::make()
                     ->relationship('date')
                     ->schema([
                         Forms\Components\DateTimePicker::make('date_one')
-                            ->hint('Does not show the date at all, but saves it 2 hours behind')
+                            ->hint('Does not show the date at all [not fixed], but saves it 2 hours behind [not fixed]')
                             ->helperText(fn($record) => 'Database: ' . $record->date_one)
                             ->timezone('GMT+2'),
                     ]),
 
-                // Shows the date 4 hours ahead (instead of 2), and then saves it 2 hours ahead
+                // Shows the date 4 hours ahead (instead of 2) [fixed], and then saves it 2 hours ahead [fixed]
                 Forms\Components\Group::make()
                     ->relationship('date')
                     ->schema([
                         Forms\Components\DateTimePicker::make('date_two')
-                            ->hint('Shows the date 4 hours ahead, and then saves it 2 hours ahead')
+                            ->hint('Shows the date 4 hours ahead [fixed], and then saves it 2 hours ahead [fixed]')
                             ->helperText(fn($record) => 'Database: ' . $record->date_two)
                             ->timezone('GMT+2')
                             ->native(false),
